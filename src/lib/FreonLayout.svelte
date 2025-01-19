@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Alert } from 'flowbite-svelte';
+    import {Alert, Heading} from 'flowbite-svelte';
     import { Drawer, CloseButton } from 'flowbite-svelte';
     import { sineIn } from 'svelte/easing';
     import InfoPanel from "$lib/InfoPanel.svelte";
@@ -16,16 +16,22 @@
 
 <NavBar/>
 
-<div class="p-8">
-    <h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-    <Alert>
-        <span class="font-medium">Info alert!</span>
-        Change a few things up and try submitting again.
-    </Alert>
+<div style="height:60px;" class="md:hidden lg:hidden xl:hidden block">
+    <!--  This block is here to shift the content down on small media. This is done because the "sm:mt-12"
+      marking down below does not function. -->
 </div>
 
-<InfoPanel/>
+<div style="height:1000px;" class="sm:mt-12 md:mt-20 lg:mt-20 xl:mt-20 overflow-scroll pb-16 bg-red-800">
+    --------------------------------
+    Editor content comes here ...
+</div>
+
+<Footer class="absolute bottom-0 start-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+    <FooterCopyright href="/" by="Freon™" year={2025}/>
+</Footer>
+
+
+<!-- Normally hidden elements-->
 
 <Drawer placement="right" transitionType="fly" {transitionParams} bind:hidden={$drawerHidden} id="sidebar1">
     <div class="flex items-center">
@@ -36,7 +42,3 @@
     </div>
     <ModelInfo/>
 </Drawer>
-
-<Footer>
-    <FooterCopyright href="/" by="Freon™" year={2025}/>
-</Footer>
