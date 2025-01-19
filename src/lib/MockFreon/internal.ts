@@ -6,6 +6,7 @@ export * from "./FreOwnerDescriptor.js";
 // export * from "./FreExpressionNode.js";
 // export * from "./FreModel.js";
 export * from "./FreModelUnit.js";
+export * from "./ModelUnitIdentifier.js";
 // export * from "./decorators/index.js";
 // export * from "./FreNodeBaseImpl.js";
 // export * from "./FreNodeReference.js";

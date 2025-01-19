@@ -8,7 +8,7 @@
     import ModelInfo from "$lib/ModelInfo.svelte";
     import { Footer, FooterCopyright } from 'flowbite-svelte';
     let transitionParams = {
-        x: -320,
+        x: 320,
         duration: 200,
         easing: sineIn
     };
@@ -27,7 +27,7 @@
 
 <InfoPanel/>
 
-<Drawer transitionType="fly" {transitionParams} bind:hidden={$drawerHidden} id="sidebar1">
+<Drawer placement="right" transitionType="fly" {transitionParams} bind:hidden={$drawerHidden} id="sidebar1">
     <div class="flex items-center">
         <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
             Model Info

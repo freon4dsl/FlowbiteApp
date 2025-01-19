@@ -1,6 +1,6 @@
 <script>
     import {
-        Button, DarkMode,
+        Button, ButtonGroup, DarkMode,
         Dropdown,
         DropdownDivider,
         DropdownItem,
@@ -10,9 +10,10 @@
         NavLi,
         NavUl, Tooltip
     } from "flowbite-svelte";
-    import {ChevronDownOutline} from "flowbite-svelte-icons";
+    import {ArrowRightOutline, ChevronDownOutline, ChevronRightOutline} from "flowbite-svelte-icons";
     import { page } from '$app/stores';
     import {drawerHidden} from "$lib/stores/DrawerStore";
+    import GitHub from "$lib/GitHub.svelte";
     $: activeUrl = $page.url.pathname;
 
 </script>
@@ -23,12 +24,20 @@
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon</span>
     </NavBrand>
     <div class="flex md:order-2">
-        <NavHamburger />
-        <Button id="placement-3" size="sm" on:click={() => ($drawerHidden = false)}>Model Info</Button>
-        <Tooltip triggeredBy="#placement-3" placement='bottom'>
-            Tooltip content - Bottom
-        </Tooltip>
-        <DarkMode />
+        <ButtonGroup class="*:!ring-primary-700">
+            <NavHamburger />
+                <Tooltip placement="bottom">See menu</Tooltip>
+            <Button name="View on GitHub" href="https://github.com/freon4dsl">
+                <GitHub />
+            </Button>
+                <Tooltip placement="bottom">View on GitHub</Tooltip>
+            <DarkMode/>
+                <Tooltip placement='bottom'>Dark/Light Mode</Tooltip>
+            <Button on:click={() => ($drawerHidden = false)}>
+                <ChevronRightOutline class="w-6 h-6 ms-0 dark:text-white text-primary-800 inline" />
+            </Button>
+                <Tooltip placement='bottom'>Show Model Info</Tooltip>
+        </ButtonGroup>
     </div>
     <NavUl {activeUrl} >
         <NavLi href="/">Home</NavLi>

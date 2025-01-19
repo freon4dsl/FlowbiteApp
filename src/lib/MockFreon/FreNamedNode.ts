@@ -1,4 +1,4 @@
-import { FreNode } from "./FreNode.js";
+import { type FreNode } from "./FreNode.js";
 
 export interface FreNamedNode extends FreNode {
     name: string;

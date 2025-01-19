@@ -1,4 +1,4 @@
-import { FreOwnerDescriptor } from "./FreOwnerDescriptor.js";
+import { type FreOwnerDescriptor } from "./FreOwnerDescriptor.js";
 
 /**
  * You can either directly implement these interfaces, or use `Module Augmentation`,
