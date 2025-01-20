@@ -20,8 +20,7 @@
       marking down below does not function. -->
 </div>
 
-<div style="height:1000px;" class="sm:mt-12 md:mt-20 lg:mt-20 xl:mt-20 sm:mb-12 md:mb-20 lg:mb-20 xl:mb-20 pb-16 bg-red-800">
-    --------------------------------
+<div style="height:1000px;" class="sm:mt-12 md:mt-20 lg:mt-20 xl:mt-20 sm:mb-12 md:mb-20 lg:mb-20 xl:mb-20 pb-16 bg-red-800 flex items-center justify-center">
     Editor content comes here ...
 </div>
 
