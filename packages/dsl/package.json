@@ -1,12 +1,13 @@
 {
   "private": false,
-  "name": "Education",
+  "name": "education-dsl",
   "version": "0.0.1",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules/",
-    "build": "npm run generate && tsc",
+    "build": "tsc",
+    "build-all": "npm run generate && tsc",
     "build-app": "rollup -c",
     "dev": "cross-env NODE_PORT=8001 rollup -c -w",
     "start": "sirv public",

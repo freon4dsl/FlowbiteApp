@@ -6,6 +6,7 @@
     import { drawerHidden } from "$lib/stores/DrawerStore";
     import ModelInfo from "$lib/ModelInfo.svelte";
     import { Footer, FooterCopyright } from 'flowbite-svelte';
+    import EditorPart from '$lib/EditorPart.svelte';
     let transitionParams = {
         x: 320,
         duration: 200,
@@ -23,6 +24,7 @@
 <div style="height:1000px;" class="sm:mt-12 md:mt-20 lg:mt-20 xl:mt-20 sm:mb-12 md:mb-20 lg:mb-20 xl:mb-20 pb-16 bg-red-800 flex items-center justify-center">
     Editor content comes here ...
 </div>
+<EditorPart/>
 
 <Footer class="text-xs fixed bottom-0 start-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:py-1 md: px-4 dark:bg-gray-800 dark:border-gray-600">
     <FooterCopyright href="/" by="Openmodeling" year={2025} class="inline-flex items-center text-xs" />

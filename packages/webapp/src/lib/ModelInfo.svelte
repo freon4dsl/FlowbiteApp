@@ -1,13 +1,7 @@
 <script lang="ts">
-    import {Dropdown, DropdownItem, Heading, Li, List, Listgroup, ListgroupItem} from 'flowbite-svelte';
+    import {Dropdown, DropdownItem, Heading, Listgroup, ListgroupItem} from 'flowbite-svelte';
     import {ChevronDownOutline, DotsHorizontalOutline} from "flowbite-svelte-icons";
     let simpleList = ['Profile', 'Settings', 'Messages', 'Download'];
-    let buttons = [
-        { name: 'Profile', mycustomfield: 'data1', current: true },
-        { name: 'Settings', mycustomfield: 'data2' },
-        { name: 'Messages', mycustomfield: 'data3' },
-        { name: 'Download', mycustomfield: 'data4', disabled: true, attrs: {type: 'submit'} }
-    ];
 </script>
 
 <Listgroup>

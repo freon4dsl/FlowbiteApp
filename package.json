@@ -2,6 +2,7 @@
   "name": "flowbite-app",
   "private": true,
   "scripts": {
+    "dev": "cd ./packages/webapp && npm run dev",
     "rebuild": "npm run clean && npm install && npm run build && npm run test",
     "rebuild-dev": "npm run clean && npm install && npm run build-dev",
     "clean": "rm -f package-lock.json && rm -rf node_modules/ && npm run clean --workspaces --if-present",

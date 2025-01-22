@@ -1,7 +1,14 @@
 // info about the model and model unit shown
 import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
-import type {FreModelUnit, ModelUnitIdentifier} from "$lib/MockFreon";
+import {
+	type FreModelUnit,
+	InMemoryModel,
+	type IServerCommunication,
+	LionWebRepositoryCommunication,
+	type ModelUnitIdentifier, ServerCommunication
+} from '@freon4dsl/core';
+import { EducationEnvironment } from "education-dsl/src/freon/config/gen/EducationEnvironment";
 
 export let currentModelName: Writable<string> = writable<string>("");
 export let currentUnitName: Writable<ModelUnitIdentifier> = writable<ModelUnitIdentifier>(undefined);
@@ -16,3 +23,5 @@ export let toBeRenamed: Writable<FreModelUnit> = writable<FreModelUnit>(undefine
 export let editorProgressShown: Writable<boolean> = writable<boolean>(false);
 
 export let unsavedChanges: Writable<boolean> = writable<boolean>(false); // TODO set this value somewhere
+
+
