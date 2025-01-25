@@ -26,19 +26,19 @@
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon</span>
     </NavBrand>
     <div class="flex md:order-2">
-        <ButtonGroup class="*:!ring-primary-700">
+        <ButtonGroup class="*:!ring-primary-700 dark:bg-black">
             <NavHamburger />
                 <Tooltip placement="bottom">See menu</Tooltip>
             <DarkMode/>
-            <Tooltip placement='bottom'>Dark/Light Mode</Tooltip>
+                <Tooltip placement='bottom'>Dark/Light Mode</Tooltip>
             <Button name="View on GitHub" href="https://github.com/freon4dsl/Freon4dsl.git" target="_blank">
                 <GitHub />
             </Button>
-            <Tooltip placement="bottom">View on GitHub</Tooltip>
+                <Tooltip placement="bottom">View on GitHub</Tooltip>
             <Button name="View Documentation" href="https://www.freon4dsl.dev/" target="_blank">
                 <AnnotationSolid class="w-6 h-6 ms-0 dark:text-white inline"/>
             </Button>
-            <Tooltip placement="bottom">Go to Documentation</Tooltip>
+                <Tooltip placement="bottom">Go to Documentation</Tooltip>
             <Button on:click={() => ($drawerHidden = false)}>
                 <ChevronRightOutline class="w-6 h-6 ms-0 dark:text-white inline" />
             </Button>

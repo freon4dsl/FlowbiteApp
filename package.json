@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "cd ./packages/webapp && npm run dev",
+    "server": "cd ./packages/dsl && npm run server",
     "rebuild": "npm run clean && npm install && npm run build && npm run test",
-    "rebuild-dev": "npm run clean && npm install && npm run build-dev",
     "clean": "rm -f package-lock.json && rm -rf node_modules/ && npm run clean --workspaces --if-present",
     "start": "npm run start --stream --parallel",
     "build": "npm run build --workspaces --if-present",
