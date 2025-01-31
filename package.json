@@ -1,20 +1,9 @@
 {
   "name": "flowbite-app",
   "private": true,
-  "scripts": {
-    "dev": "cd ./packages/webapp && npm run dev",
-    "server": "cd ./packages/dsl && npm run server",
-    "rebuild": "npm run clean && npm install && npm run build && npm run test",
-    "clean": "rm -f package-lock.json && rm -rf node_modules/ && npm run clean --workspaces --if-present",
-    "start": "npm run start --stream --parallel",
-    "build": "npm run build --workspaces --if-present",
-    "setup": "npm run setup --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
-    "prettier": "prettier --write --print-width 120 --tab-width 4 packages/*/src/**/*.ts packages/*/src/**/*.tsx packages/*/src/**/*.css"
-  },
   "workspaces": [
     "packages/dsl",
     "packages/webapp"
   ],
-  "version": "1.0.0-beta3"
+  "version": "1.0.0"
 }
