@@ -9,17 +9,14 @@
 		ListgroupItem
 	} from 'flowbite-svelte';
 	import { ChevronDownOutline, DotsHorizontalOutline } from 'flowbite-svelte-icons';
+	import { unitTypes } from '$lib/stores/LanguageStore';
 	let simpleList = ['Profile', 'Settings', 'Messages', 'Download'];
-	let buttons = [
-		{ name: 'Profile', mycustomfield: 'data1', current: true },
-		{ name: 'Settings', mycustomfield: 'data2' },
-		{ name: 'Messages', mycustomfield: 'data3' },
-		{ name: 'Download', mycustomfield: 'data4', disabled: true, attrs: { type: 'submit' } }
-	];
+
 </script>
 
 <Listgroup>
-	<Heading tag="h5" class="pl-2">Units of Type1</Heading>
+	{#each $unitTypes as unitType}
+	<Heading tag="h5" class="pl-2">{unitType}</Heading>
 	<ListgroupItem class="gap-2 text-base font-semibold">
 		<Listgroup items={simpleList} let:item class="w-48">
 			<div class="flex justify-between">
@@ -34,6 +31,7 @@
 			</Dropdown>
 		</Listgroup>
 	</ListgroupItem>
+		{/each}
 	<Heading tag="h5" class="pl-2">Units of Type2</Heading>
 	<ListgroupItem class="gap-2 text-base font-semibold">
 		<Listgroup items={simpleList} let:item class="w-48">

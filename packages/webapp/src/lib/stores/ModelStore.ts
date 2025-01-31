@@ -1,7 +1,7 @@
 // info about the model and model unit shown
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import type { FreModelUnit, ModelUnitIdentifier } from '$lib/MockFreon';
+import type { FreModelUnit, ModelUnitIdentifier } from '@freon4dsl/core';
 
 export let currentModelName: Writable<string> = writable<string>('');
 export let currentUnitName: Writable<ModelUnitIdentifier> =

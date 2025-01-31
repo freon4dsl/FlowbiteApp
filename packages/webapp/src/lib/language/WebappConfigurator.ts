@@ -1,4 +1,10 @@
-import { type FreEnvironment, FreLanguage, FreUndoManager, type IServerCommunication } from '@freon4dsl/core';
+import {
+    type FreEnvironment,
+    FreLanguage,
+    FreProjectionHandler,
+    FreUndoManager,
+    type IServerCommunication
+} from '@freon4dsl/core';
 import { fileExtensions, languageName, projectionNames, projectionsShown, unitTypes } from '$lib/stores/LanguageStore';
 import { setUserMessage } from '$lib/stores/UserMessageStore';
 
@@ -57,10 +63,10 @@ export class WebappConfigurator {
         fileExtensions.set(tmp);
 
         // the names of the projections / views
-        const proj = langEnv.editor.projection;
+        const proj: FreProjectionHandler = langEnv.editor.projection;
         let nameList: string[] = !!proj ? proj.projectionNames() : ["default"];
         projectionNames.set(nameList);
-        projectionsShown.set(nameList); // initialy, all projections are shown
+        projectionsShown.set(nameList); // initially, all projections are shown
 
         // let the editor know how to set the user message,
         // we do this by assigning our own method to the editor's method

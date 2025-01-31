@@ -4,7 +4,7 @@
 	import { projectionNames, projectionsShown } from '$lib/stores/LanguageStore.js';
 	import type { ProjectionItem } from '$lib/ts-utils/MenuItem';
 
-	let allProjections: ProjectionItem[] = [];
+	let allProjections: ProjectionItem[] = $state([]);
 	for (const view of $projectionNames) {
 		let selected: boolean = false;
 		if (view !== 'default') {
@@ -13,6 +13,10 @@
 			}
 			allProjections.push({ name: view, selected: selected });
 		}
+	}
+
+	function applyChanges() {
+		console.log('Apply Changes')
 	}
 </script>
 
@@ -29,5 +33,5 @@
 		</li>
 	{/each}
 	<DropdownDivider />
-	<DropdownItem on:click={() => console.log('Apply Changes')}>Apply changes</DropdownItem>
+	<DropdownItem on:click={() => applyChanges()}>Apply changes</DropdownItem>
 </Dropdown>
