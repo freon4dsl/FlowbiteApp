@@ -8,6 +8,6 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	optimizeDeps: {
-		exclude: ['flowbite']
+		exclude: ['flowbite', 'tailwind-merge', 'flowbite-svelte', 'flowbite-svelte-icons', '@floating-ui/dom']
 	}
 });
