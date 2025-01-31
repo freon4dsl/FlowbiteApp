@@ -1,4 +1,4 @@
-import { type FreNode } from "./FreNode.js";
+import { type FreNode } from './FreNode.js';
 
 /**
  * This object describes for each FreNode what its `owner` object is (if any),
@@ -6,7 +6,7 @@ import { type FreNode } from "./FreNode.js";
  * the position in the array is the `propertIndex'
  */
 export interface FreOwnerDescriptor {
-    owner: FreNode;
-    propertyName: string;
-    propertyIndex?: number;
+	owner: FreNode;
+	propertyName: string;
+	propertyIndex?: number;
 }

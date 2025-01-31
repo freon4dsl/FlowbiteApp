@@ -1,27 +1,27 @@
-import { type FreOwnerDescriptor } from "./FreOwnerDescriptor.js";
+import { type FreOwnerDescriptor } from './FreOwnerDescriptor.js';
 
 /**
  * You can either directly implement these interfaces, or use `Module Augmentation`,
  * as described in `https://www.typescriptlang.org/docs/handbook/declaration-merging.html`.
  */
 export interface FreNode {
-    freId(): string;
+	freId(): string;
 
-    freLanguageConcept(): string;
+	freLanguageConcept(): string;
 
-    freOwner(): FreNode | undefined;
+	freOwner(): FreNode | undefined;
 
-    freOwnerDescriptor(): FreOwnerDescriptor;
+	freOwnerDescriptor(): FreOwnerDescriptor;
 
-    freIsModel(): boolean;
+	freIsModel(): boolean;
 
-    freIsUnit(): boolean;
+	freIsUnit(): boolean;
 
-    freIsExpression(): boolean;
+	freIsExpression(): boolean;
 
-    freIsBinaryExpression(): boolean;
+	freIsBinaryExpression(): boolean;
 
-    copy(): FreNode;
+	copy(): FreNode;
 
-    match(toBeMatched: Partial<FreNode>): boolean;
+	match(toBeMatched: Partial<FreNode>): boolean;
 }

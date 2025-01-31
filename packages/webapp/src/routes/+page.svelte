@@ -1,5 +1,5 @@
 <script>
-    import FreonLayout from "$lib/FreonLayout.svelte";
+	import FreonLayout from '$lib/FreonLayout.svelte';
 </script>
 
-<FreonLayout/>
+<FreonLayout />

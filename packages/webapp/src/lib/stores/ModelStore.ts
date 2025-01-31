@@ -1,10 +1,11 @@
 // info about the model and model unit shown
-import { writable } from "svelte/store";
-import type { Writable } from "svelte/store";
-import type {FreModelUnit, ModelUnitIdentifier} from "$lib/MockFreon";
+import { writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
+import type { FreModelUnit, ModelUnitIdentifier } from '$lib/MockFreon';
 
-export let currentModelName: Writable<string> = writable<string>("");
-export let currentUnitName: Writable<ModelUnitIdentifier> = writable<ModelUnitIdentifier>(undefined);
+export let currentModelName: Writable<string> = writable<string>('');
+export let currentUnitName: Writable<ModelUnitIdentifier> =
+	writable<ModelUnitIdentifier>(undefined);
 
 export let noUnitAvailable: Writable<boolean> = writable<boolean>(true);
 export let units: Writable<FreModelUnit[]> = writable<FreModelUnit[]>(undefined);
