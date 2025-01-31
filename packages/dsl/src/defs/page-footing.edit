@@ -1,6 +1,6 @@
-/* This file contains the footing editor definition. */
+/* This file contains the Footing editor definition. */
 
-editor footing
+editor Footing
 
 Page {[
     Questions:

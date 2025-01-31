@@ -6,7 +6,7 @@
 	import { drawerHidden } from '$lib/stores/DrawerStore';
 	import ModelInfo from '$lib/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
-	import { projectionNames } from '$lib/stores/LanguageStore';
+	import { projectionNames } from '$lib/stores/Projections.svelte.js';
 	let transitionParams = {
 		x: 320,
 		duration: 200,
@@ -26,9 +26,6 @@
 	class="flex items-center justify-center bg-red-800 pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
 >
 	Editor content comes here ...
-	{#each $projectionNames as name}
-		<p>{name} --- </p>
-	{/each}
 </div>
 
 <Footer

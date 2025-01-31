@@ -5,8 +5,9 @@ import {
     FreUndoManager,
     type IServerCommunication
 } from '@freon4dsl/core';
-import { fileExtensions, languageName, projectionNames, projectionsShown, unitTypes } from '$lib/stores/LanguageStore';
+import { fileExtensions, languageName, unitTypes } from '$lib/stores/LanguageStore';
 import { setUserMessage } from '$lib/stores/UserMessageStore';
+import { projectionNames, projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
 
 /**
  * Web configuration singleton.
@@ -53,6 +54,19 @@ export class WebappConfigurator {
         // the names of the unit types
         unitTypes.set(FreLanguage.getInstance().getUnitNames());
 
+        // the names of the projections / views
+        const proj: FreProjectionHandler = langEnv.editor.projection;
+        let nameList: string[] = !!proj ? proj.projectionNames() : ["default"];
+        // remove any old values
+        projectionNames.splice(0, projectionNames.length);
+        // push the right ones
+        projectionNames.push(...nameList);
+        replaceProjectionsShown(nameList);
+        // // remove any old values
+        // projectionsShown.splice(0, projectionNames.length);
+        // // set all to shown, initially, all projections are shown
+        // projectionsShown.push(...nameList);
+
         // the file extensions for all unit types
         // because 'langEnv.fileExtensions.values()' is not an Array but an IterableIterator,
         // we transfer the value to a tmp array.
@@ -61,12 +75,6 @@ export class WebappConfigurator {
             tmp.push(val);
         }
         fileExtensions.set(tmp);
-
-        // the names of the projections / views
-        const proj: FreProjectionHandler = langEnv.editor.projection;
-        let nameList: string[] = !!proj ? proj.projectionNames() : ["default"];
-        projectionNames.set(nameList);
-        projectionsShown.set(nameList); // initially, all projections are shown
 
         // let the editor know how to set the user message,
         // we do this by assigning our own method to the editor's method

@@ -34,3 +34,5 @@ let langEnv: FreEnvironment = LanguageEnvironment.getInstance();
 // the language name
 languageName.set(langEnv.languageName);
 ```
+
+## How to Get Language Info

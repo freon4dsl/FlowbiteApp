@@ -20,7 +20,7 @@ Theory {[
     Theory [=>Page]
         ${self.content vertical}
 
-        [=>Page:footing]
+        [=>Page:Footing]
 ]}
 
 Video {[
@@ -29,7 +29,7 @@ Video {[
         Maybe this video will help you understand.
         ${self.url}
 
-        [=>Page:footing]
+        [=>Page:Footing]
 ]}
 
 WorkSheet {[
@@ -37,7 +37,7 @@ WorkSheet {[
     Worksheet [=>Page]
         See if you can answer the following questions.
 
-        [=>Page:footing]
+        [=>Page:Footing]
 ]}
 
 ExamplePage {[
@@ -47,7 +47,7 @@ ExamplePage {[
 
         Now, please, answer the following questions.
 
-        [=>Page:footing]
+        [=>Page:Footing]
 ]}
 
 InDepthMaterial {[
@@ -57,7 +57,7 @@ InDepthMaterial {[
 
         Test your understanding by answering the following questions.
 
-        [=>Page:footing]
+        [=>Page:Footing]
 ]}
 
 Question {[
