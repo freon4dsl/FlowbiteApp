@@ -15,4 +15,4 @@ export let toBeRenamed: Writable<FreModelUnit> = writable<FreModelUnit>(undefine
 
 export let editorProgressShown: Writable<boolean> = writable<boolean>(false);
 
-export let unsavedChanges: Writable<boolean> = writable<boolean>(false); // TODO set this value somewhere
+export let unsavedChanges: Writable<boolean> = writable<boolean>(false);
