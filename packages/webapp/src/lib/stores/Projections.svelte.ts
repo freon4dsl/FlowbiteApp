@@ -1,5 +1,4 @@
 // all possible projections
-export let projectionNames: string[] = $state([]);
 // the projections that are currently chosen to be shown
 export let projectionsShown: string[] = $state([]);
 

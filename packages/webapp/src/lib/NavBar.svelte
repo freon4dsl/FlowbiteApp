@@ -10,7 +10,7 @@
 		Tooltip
 	} from 'flowbite-svelte';
 	import { AnnotationSolid, ChevronRightOutline } from 'flowbite-svelte-icons';
-	import { drawerHidden, langInfo } from '$lib/stores/DrawerStore.svelte.ts';
+	import { drawerHidden, langInfo } from '$lib/stores/LanguageInfo.svelte.ts';
 	import GitHub from '$lib/GitHub.svelte';
 	import FileMenu from '$lib/FileMenu.svelte';
 	import EditMenu from '$lib/EditMenu.svelte';

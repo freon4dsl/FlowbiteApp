@@ -6,8 +6,8 @@ import {
     type IServerCommunication
 } from '@freon4dsl/core';
 import { setUserMessage } from '$lib/stores/UserMessageStore';
-import { projectionNames, projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
-import { langInfo } from '$lib/stores/DrawerStore.svelte';
+import { replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
+import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
 
 /**
  * Web configuration singleton.
@@ -58,14 +58,10 @@ export class WebappConfigurator {
         const proj: FreProjectionHandler = langEnv.editor.projection;
         let nameList: string[] = !!proj ? proj.projectionNames() : ["default"];
         // remove any old values
-        projectionNames.splice(0, projectionNames.length);
+        langInfo.projectionNames.splice(0, langInfo.projectionNames.length);
         // push the right ones
-        projectionNames.push(...nameList);
+        langInfo.projectionNames.push(...nameList);
         replaceProjectionsShown(nameList);
-        // // remove any old values
-        // projectionsShown.splice(0, projectionNames.length);
-        // // set all to shown, initially, all projections are shown
-        // projectionsShown.push(...nameList);
 
         // the file extensions for all unit types
         // because 'langEnv.fileExtensions.values()' is not an Array but an IterableIterator,

@@ -3,7 +3,7 @@
 	import { Drawer, CloseButton } from 'flowbite-svelte';
 	import { sineIn } from 'svelte/easing';
 	import NavBar from '$lib/NavBar.svelte';
-	import { drawerHidden } from '$lib/stores/DrawerStore.svelte.js';
+	import { drawerHidden } from '$lib/stores/LanguageInfo.svelte.js';
 	import ModelInfo from '$lib/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
 	let transitionParams = {

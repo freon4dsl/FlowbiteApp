@@ -2,10 +2,10 @@
 	import { Checkbox, Dropdown, DropdownDivider, DropdownItem, NavLi } from 'flowbite-svelte';
 	import { ChevronDownOutline } from 'flowbite-svelte-icons';
 	import { projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
-	import { projectionNames } from '$lib/stores/Projections.svelte.js';
+	import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
 
 	let allProjections = $derived(
-		projectionNames.map(view => {
+		langInfo.projectionNames.map(view => {
 				let selected: boolean = false;
 				if (view !== 'default') {
 					if (projectionsShown.includes(view)) {

@@ -9,7 +9,7 @@
 		ListgroupItem
 	} from 'flowbite-svelte';
 	import { ChevronDownOutline, DotsHorizontalOutline } from 'flowbite-svelte-icons';
-	import { langInfo } from '$lib/stores/DrawerStore.svelte';
+	import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
 	let simpleList = ['Profile', 'Settings', 'Messages', 'Download'];
 
 </script>
