@@ -6,11 +6,44 @@
 	import { drawerHidden } from '$lib/stores/LanguageInfo.svelte.js';
 	import ModelInfo from '$lib/main-app/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
+	import { onMount } from 'svelte';
+	import { WebappConfigurator } from '$lib/language';
+	import { serverInfo } from '$lib/stores/ModelInfo.svelte.js';
+	import { dialogs } from '$lib/stores/Dialogs.svelte';
+	import OpenModelDialog from '$lib/app-parts/OpenModelDialog.svelte';
 	let transitionParams = {
 		x: 320,
 		duration: 200,
 		easing: sineIn
 	};
+
+	onMount(async () => {
+		//Get list of models from server
+		const names = await WebappConfigurator.getInstance().serverCommunication?.loadModelList()
+		if (!!names && names.length > 0) {
+			serverInfo.allModelNames = names;
+			console.log("On server: " + serverInfo.allModelNames.join(", "))
+		}
+		// If a model is given as parameter, open this model
+		// A new model is created when this model does not exist
+		const urlParams = new URLSearchParams(window.location.search);
+		const model = urlParams.get('model');
+		if (model !== null) {
+			openModel(model);
+		} else {
+			console.log('open dialog')
+			// No model given as parameter, ask for it
+			// if (!$userMessageOpen) {
+				// open the app with the open/new model dialog
+				dialogs.openModelDialogVisible = true;
+			// }
+		}
+	});
+
+	function openModel(model: string) {
+		// let comm = EditorState.getInstance();
+		// comm.openModel(model);
+	}
 </script>
 
 <NavBar />
@@ -22,9 +55,10 @@
 
 <div
 	style="height:1000px;"
-	class="flex items-center justify-center bg-red-800 pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
+	class="flex items-center justify-center bg-primary-700 pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
 >
-	Editor content comes here ...
+	<div class="text-amber-50 text-wrap">Editor content comes here ...</div>
+	<div class="text-amber-50">Open Model Dialog is {dialogs.openModelDialogVisible}</div>
 </div>
 
 <Footer
@@ -44,8 +78,6 @@
 		>
 	</FooterLinkGroup>
 </Footer>
-
-SOME TEXT
 
 <!-- Normally hidden elements-->
 
@@ -67,3 +99,5 @@ SOME TEXT
 	</div>
 	<ModelInfo />
 </Drawer>
+
+<OpenModelDialog/>

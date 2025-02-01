@@ -36,3 +36,7 @@ languageName.set(langEnv.languageName);
 ```
 
 ## How to Get Language Info
+
+See hooks.client.ts and WebappConfiguration.ts
+
+## How to Get Model Info
