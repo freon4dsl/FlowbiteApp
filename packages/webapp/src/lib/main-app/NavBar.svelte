@@ -11,10 +11,10 @@
 	} from 'flowbite-svelte';
 	import { AnnotationSolid, ChevronRightOutline } from 'flowbite-svelte-icons';
 	import { drawerHidden, langInfo } from '$lib/stores/LanguageInfo.svelte.ts';
-	import GitHub from '$lib/GitHub.svelte';
-	import FileMenu from '$lib/FileMenu.svelte';
-	import EditMenu from '$lib/EditMenu.svelte';
-	import ViewMenu from '$lib/ViewMenu.svelte';
+	import GitHub from '$lib/main-app/GitHub.svelte';
+	import FileMenu from '$lib/main-app/FileMenu.svelte';
+	import EditMenu from '$lib/main-app/EditMenu.svelte';
+	import ViewMenu from '$lib/main-app/ViewMenu.svelte';
 	let hidden = false;
 </script>
 

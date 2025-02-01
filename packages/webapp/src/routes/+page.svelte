@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FreonLayout from '$lib/FreonLayout.svelte';
+	import FreonLayout from '$lib/main-app/FreonLayout.svelte';
   import { configureExternals, configureLoggers, LanguageEnvironment } from "@mono/education";
   import { WebappConfigurator } from "$lib/language/WebappConfigurator.js";
   import { ServerCommunication } from "@freon4dsl/core";

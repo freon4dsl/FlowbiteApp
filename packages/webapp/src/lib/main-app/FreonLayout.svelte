@@ -2,9 +2,9 @@
 	import { FooterLink, FooterLinkGroup } from 'flowbite-svelte';
 	import { Drawer, CloseButton } from 'flowbite-svelte';
 	import { sineIn } from 'svelte/easing';
-	import NavBar from '$lib/NavBar.svelte';
+	import NavBar from '$lib/main-app/NavBar.svelte';
 	import { drawerHidden } from '$lib/stores/LanguageInfo.svelte.js';
-	import ModelInfo from '$lib/ModelInfo.svelte';
+	import ModelInfo from '$lib/main-app/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
 	let transitionParams = {
 		x: 320,
