@@ -9,13 +9,13 @@
 		ListgroupItem
 	} from 'flowbite-svelte';
 	import { ChevronDownOutline, DotsHorizontalOutline } from 'flowbite-svelte-icons';
-	import { unitTypes } from '$lib/stores/LanguageStore';
+	import { langInfo } from '$lib/stores/DrawerStore.svelte';
 	let simpleList = ['Profile', 'Settings', 'Messages', 'Download'];
 
 </script>
 
 <Listgroup>
-	{#each $unitTypes as unitType}
+	{#each langInfo.unitTypes as unitType}
 	<Heading tag="h5" class="pl-2">{unitType}</Heading>
 	<ListgroupItem class="gap-2 text-base font-semibold">
 		<Listgroup items={simpleList} let:item class="w-48">

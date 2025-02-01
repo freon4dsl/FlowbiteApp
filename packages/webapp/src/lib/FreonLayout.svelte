@@ -3,10 +3,9 @@
 	import { Drawer, CloseButton } from 'flowbite-svelte';
 	import { sineIn } from 'svelte/easing';
 	import NavBar from '$lib/NavBar.svelte';
-	import { drawerHidden } from '$lib/stores/DrawerStore';
+	import { drawerHidden } from '$lib/stores/DrawerStore.svelte.js';
 	import ModelInfo from '$lib/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
-	import { projectionNames } from '$lib/stores/Projections.svelte.js';
 	let transitionParams = {
 		x: 320,
 		duration: 200,
@@ -54,7 +53,7 @@ SOME TEXT
 	placement="right"
 	transitionType="fly"
 	{transitionParams}
-	bind:hidden={$drawerHidden}
+	bind:hidden={drawerHidden.value}
 	id="sidebar1"
 >
 	<div class="flex items-center">
@@ -64,7 +63,7 @@ SOME TEXT
 		>
 			Model Info
 		</h5>
-		<CloseButton on:click={() => ($drawerHidden = true)} class="mb-4 dark:text-white" />
+		<CloseButton on:click={() => (drawerHidden.value = true)} class="mb-4 dark:text-white" />
 	</div>
 	<ModelInfo />
 </Drawer>

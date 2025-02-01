@@ -5,9 +5,9 @@ import {
     FreUndoManager,
     type IServerCommunication
 } from '@freon4dsl/core';
-import { fileExtensions, languageName, unitTypes } from '$lib/stores/LanguageStore';
 import { setUserMessage } from '$lib/stores/UserMessageStore';
 import { projectionNames, projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
+import { langInfo } from '$lib/stores/DrawerStore.svelte';
 
 /**
  * Web configuration singleton.
@@ -49,10 +49,10 @@ export class WebappConfigurator {
     static initialize(editorEnvironment: FreEnvironment): void {
         let langEnv: FreEnvironment = editorEnvironment;
         // the language name
-        languageName.set(langEnv.languageName);
+        langInfo.name = langEnv.languageName;
 
         // the names of the unit types
-        unitTypes.set(FreLanguage.getInstance().getUnitNames());
+        langInfo.unitTypes = FreLanguage.getInstance().getUnitNames();
 
         // the names of the projections / views
         const proj: FreProjectionHandler = langEnv.editor.projection;
@@ -74,7 +74,7 @@ export class WebappConfigurator {
         for (const val of langEnv.fileExtensions.values()) {
             tmp.push(val);
         }
-        fileExtensions.set(tmp);
+        langInfo.fileExtensions = tmp;
 
         // let the editor know how to set the user message,
         // we do this by assigning our own method to the editor's method
