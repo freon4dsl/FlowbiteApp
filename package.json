@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/dsl",
-    "packages/webapp"
+    "packages/webapp",
+    "packages/core-svelte"
   ],
   "version": "1.0.0"
 }

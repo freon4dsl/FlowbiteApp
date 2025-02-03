@@ -1,4 +1,4 @@
-// import { FreLogger } from "@freon4dsl/core";
+import { FreLogger } from '@freon4dsl/core';
 
 /**
  * Configure loggers. Loggers are muted by default, unmuting loggers that you want to
@@ -9,4 +9,6 @@ export function configureLoggers() {
     // FreLogger.unmute("FreLionwebSerializer")
     // // Do not show log messages containing any of these strings
     // FreLogger.setFilter(["beforeUpdate", "setFocus", "afterUpdate", "onMount", "REFRESH", "refresh"])
+	FreLogger.unmuteAllLogs();
+	FreLogger.unmute("FreonComponent")
 }

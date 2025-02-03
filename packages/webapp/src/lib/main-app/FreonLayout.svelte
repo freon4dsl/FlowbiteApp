@@ -6,11 +6,23 @@
 	import { drawerHidden } from '$lib/stores/LanguageInfo.svelte.js';
 	import ModelInfo from '$lib/main-app/ModelInfo.svelte';
 	import { Footer, FooterCopyright } from 'flowbite-svelte';
+	import { FreonComponent } from "@freon4dsl/core-svelte";
+	import { WebappConfigurator } from '$lib/language';
+	import type { FreEditor } from '@freon4dsl/core';
+
 	let transitionParams = {
 		x: 320,
 		duration: 200,
 		easing: sineIn
 	};
+	console.log('in component setup:', $effect.tracking());
+
+	let myEditor: FreEditor | undefined = $state(undefined);
+	$effect(() => {
+		console.log('in effect:', $effect.tracking());
+		myEditor = WebappConfigurator.getInstance().editorEnvironment?.editor;
+	});
+
 </script>
 
 <NavBar />
@@ -22,9 +34,19 @@
 
 <div
 	style="height:1000px;"
-	class="flex items-center justify-center bg-red-800 pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
+	class="flex items-center justify-center bg-primary-50 pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
 >
-	Editor content comes here ...
+	<div class='bg-white'>
+		{#if (!myEditor?.rootElement)}
+			<div class="message">
+				<div class="mdc-typography--subtitle1">
+					Please, select, create, or import Unit to be shown.
+				</div>
+			</div>
+		{:else}
+			<FreonComponent editor={myEditor}/>
+		{/if}
+	</div>
 </div>
 
 <Footer

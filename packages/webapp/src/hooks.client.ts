@@ -5,7 +5,8 @@ import { configureExternals, configureLoggers, LanguageEnvironment } from "@mono
 import { WebappConfigurator } from "$lib/language/WebappConfigurator.js";
 import { ServerCommunication } from "@freon4dsl/core";
 
-WebappConfigurator.getInstance().setEditorEnvironment(LanguageEnvironment.getInstance());
-WebappConfigurator.getInstance().setServerCommunication(ServerCommunication.getInstance());
+WebappConfigurator.getInstance().setEnvironment(LanguageEnvironment.getInstance(), ServerCommunication.getInstance());
 configureExternals();
 configureLoggers();
+await WebappConfigurator.getInstance().setUnitInEditor().then(() => {console.log("Did create new unit")});
+

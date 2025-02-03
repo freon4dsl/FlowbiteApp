@@ -1,13 +1,14 @@
 import {
+    FreEditor,
     type FreEnvironment,
     FreLanguage,
     FreProjectionHandler,
-    FreUndoManager,
+    FreUndoManager, InMemoryModel,
     type IServerCommunication
 } from '@freon4dsl/core';
-// import { setUserMessage } from '$lib/stores/UserMessageStore';
 import { replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
 import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
+import { autorun, runInAction } from "mobx";
 
 /**
  * Web configuration singleton.
@@ -24,22 +25,35 @@ export class WebappConfigurator {
 
     serverCommunication: IServerCommunication | undefined;
     editorEnvironment: FreEnvironment | undefined;
+    private modelStore: InMemoryModel | undefined;
 
     /**
-     * Sets the object that will perform the communication with the server
+     * Sets the object that will perform the communication with the server, and
+     * the language environment, so the webapp knows all information of the language.
+     * @param editorEnvironment
      * @param serverCommunication
      */
-    setServerCommunication(serverCommunication: IServerCommunication): void {
-        WebappConfigurator.getInstance().serverCommunication = serverCommunication;
+    setEnvironment(editorEnvironment: FreEnvironment, serverCommunication: IServerCommunication): void {
+        // console.log('setEnvironment')
+        this.editorEnvironment = editorEnvironment;
+        this.serverCommunication = serverCommunication;
+        WebappConfigurator.initialize(editorEnvironment);
+        this.modelStore = new InMemoryModel(editorEnvironment, serverCommunication);
+        // this.modelStore.addCurrentModelListener(this.modelChanged);
     }
 
-    /**
-     * Sets the language environment, so the webapp knows all information of the language.
-     * @param editorEnvironment
-     */
-    setEditorEnvironment(editorEnvironment: FreEnvironment): void {
-        WebappConfigurator.getInstance().editorEnvironment = editorEnvironment;
-        WebappConfigurator.initialize(editorEnvironment);
+    async setUnitInEditor() {
+        if (!!this.modelStore) {
+            this.modelStore.createModel("newModel").then(() => {
+                this.modelStore!.createUnit('myUnit', langInfo.unitTypes[0]);
+            }).then(() => {
+                runInAction(() => {
+                    if (!!this.editorEnvironment) {
+                        this.editorEnvironment.editor.rootElement = this.modelStore!.getUnitByName('myUnit');
+                    }
+                })
+            });
+        }
     }
 
     /**

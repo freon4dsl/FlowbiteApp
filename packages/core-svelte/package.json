@@ -1,0 +1,75 @@
+{
+  "publishConfig": {
+    "access": "public"
+  },
+  "name": "@freon4dsl/core-svelte",
+  "version": "1.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freon4dsl/Freon4dsl.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "scripts": {
+    "clean": "rm -rf node_modules/ && rm -rf dist/",
+    "dev": "vite dev",
+    "build": "tsc --noEmit && vite build && npm run package",
+    "build-dev": "tsc --noEmit && vite build && npm run package",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "prepublishOnly": "npm run package",
+    "check": "svelte-kit sync && svelte-check --tsconfig tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig tsconfig.json --watch",
+    "test": "vitest run",
+    "build-release": "npm run build",
+    "validate": "svelte-check",
+    "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
+    "install-local": "npm install --registry http://localhost:4873",
+    "republish-local": "npm run unpublish-local && npm run publish-local",
+    "release": "npm publish",
+    "publish-local": "npm publish --registry http://localhost:4873",
+    "unpublish-local": "npm unpublish --force --registry http://localhost:4873"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "devDependencies": {
+    "mobx": "^6.12.3",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/svelte": "^5.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
+    "jest-transform-stub": "^2.0.0",
+    "tslib": "^2.6.3",
+    "@sveltejs/adapter-auto": "^3.2.1",
+    "@sveltejs/kit": "^2.5.10",
+    "@sveltejs/package": "^2.3.1",
+    "@sveltejs/vite-plugin-svelte": "^3.1.1",
+    "jsdom": "^24.1.0",
+    "publint": "^0.2.8",
+    "svelte-check": "^3.8.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12",
+    "vitest": "^2.1.0"
+  },
+  "dependencies": {
+    "@material/web": "^1.5.1",
+    "@material/slider": "^14.0.0",
+    "@material/switch": "^14.0.0",
+    "@smui/ripple": "^7.0.0",
+    "svelte": "< 5.0.0",
+    "@freon4dsl/core": "^1.0.0-beta3",
+    "mobx": "^6.12.3"
+  }
+}
