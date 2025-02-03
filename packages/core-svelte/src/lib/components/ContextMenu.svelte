@@ -1,4 +1,4 @@
-<svelte:options ={true}/> <!-- this option lets us set the items props after the component has been created -->
+<svelte:options accessors={true}/> <!-- this option lets us set the items props after the component has been created -->
 
 <script lang="ts">
     import { CONTEXTMENU_LOGGER } from "$lib/components/ComponentLoggers.js";
