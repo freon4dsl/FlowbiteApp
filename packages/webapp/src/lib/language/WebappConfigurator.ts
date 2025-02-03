@@ -5,7 +5,7 @@ import {
     FreUndoManager,
     type IServerCommunication
 } from '@freon4dsl/core';
-import { setUserMessage } from '$lib/stores/UserMessageStore';
+// import { setUserMessage } from '$lib/stores/UserMessageStore';
 import { replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
 import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
 
@@ -74,7 +74,7 @@ export class WebappConfigurator {
 
         // let the editor know how to set the user message,
         // we do this by assigning our own method to the editor's method
-        langEnv.editor.setUserMessage = setUserMessage;
+        // langEnv.editor.setUserMessage = setUserMessage;
 
         // start the undo manager
         FreUndoManager.getInstance();

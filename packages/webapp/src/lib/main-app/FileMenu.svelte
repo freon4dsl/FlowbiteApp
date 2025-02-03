@@ -2,7 +2,7 @@
 	import { Button, Dropdown, DropdownDivider, DropdownItem, NavLi } from 'flowbite-svelte';
 	import { ChevronDownOutline } from 'flowbite-svelte-icons';
 	import type { MenuItem } from '$lib/ts-utils/MenuItem.js';
-	import { currentUnitName } from '$lib/stores/ModelStore.js';
+	// import { currentUnitName } from '$lib/stores/ModelStore.js';
 
 	// new model menuitem
 	const changeModel = async (id: number) => {
@@ -37,7 +37,7 @@
 
 	// save unit menuitem
 	const saveUnit = (id: number) => {
-		console.log('FileMenu.saveUnit: ' + $currentUnitName);
+		console.log('FileMenu.saveUnit: '); // + $currentUnitName);
 		// if ($currentUnitName) {
 		//     // EditorState.getInstance().saveCurrentUnit();
 		//     // setUserMessage(`Unit '${$currentUnitName.name}' saved.`);
