@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with afterUpdate and beforeUpdate. Please migrate by hand. -->
 <!-- This component switches between a <span> and an <input> HTML element. -->
 <!-- This means that there is extra functionality to set the caret position -->
 <!-- (cursor or selected text), when the switch is being made. -->

@@ -67,8 +67,6 @@
 	</FooterLinkGroup>
 </Footer>
 
-SOME TEXT
-
 <!-- Normally hidden elements-->
 
 <Drawer

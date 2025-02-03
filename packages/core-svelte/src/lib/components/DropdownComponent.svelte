@@ -7,19 +7,23 @@
     import { createEventDispatcher } from "svelte";
     import { FreLogger, type SelectOption } from "@freon4dsl/core";
 
-    export let selectedId: string = "";
-    export let options: SelectOption[] = [];
+    interface Props {
+        selectedId?: string;
+        options?: SelectOption[];
+    }
+
+    let { selectedId = $bindable(""), options = [] }: Props = $props();
     let id: string = "dropdown";
     const dispatcher = createEventDispatcher();
 
     const LOGGER = DROPDOWN_LOGGER
 
-    $: isSelected = (option: SelectOption) => { // determines the style of the selected option
+    let isSelected = $derived((option: SelectOption) => { // determines the style of the selected option
         if (options.length === 1) {
             return true;
         }
         return option.id === selectedId;
-    };
+    });
 
     /**
      * When one of the items in the menu is clicked, a custom event is dispatched to the parent of this component.
@@ -38,10 +42,10 @@
 >
     {#if options.length > 0 }
         {#each options as option (option.id + option.label)}
-            <!-- svelte-ignore a11y-no-noninteractive-element-interactions a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y_no_noninteractive_element_interactions, a11y_click_events_have_key_events -->
             <div class="dropdown-component-item"
                  class:dropdown-component-selected={isSelected(option)}
-                 on:mousedown={(event) => {event.preventDefault(); event.stopPropagation(); handleClick(option); }}
+                 onmousedown={(event) => {event.preventDefault(); event.stopPropagation(); handleClick(option); }}
                  role="none"
             >
                 {option.label}

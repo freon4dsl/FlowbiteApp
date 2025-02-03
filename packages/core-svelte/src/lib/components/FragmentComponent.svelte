@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with afterUpdate. Please migrate by hand. -->
 <script lang="ts">
     import { FRAGMENT_LOGGER } from "$lib/components/ComponentLoggers.js";
     import RenderComponent from "./RenderComponent.svelte";

@@ -2,6 +2,11 @@
 
     import { onMount } from "svelte";
     import { MockVariables } from "./MockVariables.js";
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
+
+    let { children }: Props = $props();
 
     onMount( () => {
         MockVariables.reset();
@@ -17,11 +22,11 @@
 
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions Ignored because everything is in the test environment -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions Ignored because everything is in the test environment -->
 <div id="mockComponent"
-     on:keypress={onKeyPress}
-     on:keydown={onKeyDown}
+     onkeypress={onKeyPress}
+     onkeydown={onKeyDown}
      role="group"
 >
-    <slot  />
+    {@render children?.()}
 </div>

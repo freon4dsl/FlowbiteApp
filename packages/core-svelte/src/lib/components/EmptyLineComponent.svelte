@@ -5,7 +5,11 @@
     import type { EmptyLineBox } from "@freon4dsl/core";
     import { componentId } from "./svelte-utils/index.js";
 
-    export let box: EmptyLineBox;
+    interface Props {
+        box: EmptyLineBox;
+    }
+
+    let { box }: Props = $props();
     let id: string = !!box ? componentId(box) : 'emptyline-for-unknown-box';
 </script>
 

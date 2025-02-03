@@ -1,4 +1,4 @@
-<svelte:options accessors={true}/> <!-- this option lets us set the items props after the component has been created -->
+<svelte:options ={true}/> <!-- this option lets us set the items props after the component has been created -->
 
 <script lang="ts">
     import { CONTEXTMENU_LOGGER } from "$lib/components/ComponentLoggers.js";
@@ -13,25 +13,29 @@
     import { FreLogger, MenuItem, FreEditor } from "@freon4dsl/core";
 
     // items for the context menu
-    export let items: MenuItem[];
-    export let editor: FreEditor;
+    interface Props {
+        items: MenuItem[];
+        editor: FreEditor;
+    }
+
+    let { items, editor }: Props = $props();
 
     // local variables
     const LOGGER = CONTEXTMENU_LOGGER;
-    let submenuItems: MenuItem[];
+    let submenuItems: MenuItem[] = $state();
     let elementIndex: number;                   // the index of the element in a list to which this menu is coupled
 
     // dimension (height and width) of context menu
     let menuHeight = 0, menuWidth = 0;
     // position of context menu
-    let top = 0, left = 0;
+    let top = $state(0), left = $state(0);
     // dimension (height and width) of sub menu
     let submenuHeight = 0, submenuWidth = 0;
     // position of sub menu
-    let topSub = 0, leftSub = 0;
+    let topSub = $state(0), leftSub = $state(0);
     // height of items in menu and sub menu
-    let itemHeight = 40;
-    let submenuOpen = false;
+    let itemHeight = $state(40);
+    let submenuOpen = $state(false);
 
     // let contextmenu: HTMLElement;
     // let submenu: HTMLElement;
@@ -112,10 +116,15 @@
         event.preventDefault();
         return false;
     }
+
+    export {
+    	items,
+    	editor,
+    }
 </script>
 
 <div use:clickOutsideConditional={{enabled: $contextMenuVisible}}
-     on:click_outside={hide}>
+     onclick_outside={hide}>
     {#if $contextMenuVisible}
         <nav use:getContextMenuDimension
              class="contextmenu"
@@ -125,7 +134,7 @@
                 {#if item.label === '---'}
                     <hr class="contextmenu-hr"/>
                 {:else}
-                    <button class="contextmenu-button" on:click={(event) => onClick(event, item, index)} bind:clientHeight={itemHeight}>
+                    <button class="contextmenu-button" onclick={(event) => onClick(event, item, index)} bind:clientHeight={itemHeight}>
                         {item.label}
                         {#if item.shortcut}
                             <span class="contextmenu-shortcut">{item.shortcut}</span>
@@ -143,7 +152,7 @@
                     {#if item.label === '---'}
                         <hr class="contextmenu-hr"/>
                     {:else}
-                        <button class="contextmenu-button" on:click={(event) => onClick(event, item, index)}>
+                        <button class="contextmenu-button" onclick={(event) => onClick(event, item, index)}>
                             {item.label}
                             {#if item.shortcut}
                                 <span class="contextmenu-shortcut">{item.shortcut}</span>

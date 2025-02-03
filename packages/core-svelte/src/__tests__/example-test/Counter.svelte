@@ -1,6 +1,7 @@
 <script>
-    let value = 0;
-    export let max = 3;
+    let value = $state(0);
+    /** @type {{max?: number}} */
+    let { max = 3 } = $props();
     function increment() {
         if (value < max) value++;
     }
@@ -16,7 +17,7 @@
 </style>
 
 <div class="counter">
-    <button on:click={decrement}>decrement</button>
+    <button onclick={decrement}>decrement</button>
     <div data-testid="counter-value">{value}</div>
-    <button on:click={increment}>increment</button>
+    <button onclick={increment}>increment</button>
 </div>

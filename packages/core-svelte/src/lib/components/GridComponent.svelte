@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with afterUpdate. Please migrate by hand. -->
 <script lang="ts">
     import { GRID_LOGGER } from "$lib/components/ComponentLoggers.js";
     import { GridCellBox, type GridBox, type FreEditor, FreLogger } from "@freon4dsl/core";

@@ -4,15 +4,26 @@
     import { viewport } from "$lib/components/svelte-utils/EditorViewportStore.js";
     import {Box} from "@freon4dsl/core";
 
-    export let box: Box;
-    export let hasErr: boolean = false;
-    export let parentTop: number = 0;
-    export let parentLeft: number = 0;
-    let content: string[] = [];
-    let isHovered: boolean = false;
+    interface Props {
+        box: Box;
+        hasErr?: boolean;
+        parentTop?: number;
+        parentLeft?: number;
+        children?: import('svelte').Snippet;
+    }
+
+    let {
+        box,
+        hasErr = false,
+        parentTop = 0,
+        parentLeft = 0,
+        children
+    }: Props = $props();
+    let content: string[] = $state([]);
+    let isHovered: boolean = $state(false);
     // position of error message(s)
-    let top = 0;
-    let left = 0;
+    let top = $state(0);
+    let left = $state(0);
 
     async function mouseOver(event: MouseEvent) {
         if (hasErr) {
@@ -43,12 +54,12 @@
 </script>
 
 <span role= "group"
-     on:mouseover={mouseOver}
-     on:mouseleave={mouseLeave}
-     on:mousemove={mouseMove}
-     on:focus={onFocus}
+     onmouseover={mouseOver}
+     onmouseleave={mouseLeave}
+     onmousemove={mouseMove}
+     onfocus={onFocus}
      >
-    <slot />
+    {@render children?.()}
 </span>
 
 {#if isHovered}

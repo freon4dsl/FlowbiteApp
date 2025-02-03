@@ -4,8 +4,12 @@
     import { OptionalBox, FreEditor } from "@freon4dsl/core";
 
     // Parameters
-    export let box: OptionalBox;
-    export let editor: FreEditor;
+    interface Props {
+        box: OptionalBox;
+        editor: FreEditor;
+    }
+
+    let { box, editor }: Props = $props();
     export const id = "mock-environment";
 
     const onKeyDown = (event: KeyboardEvent) => {
@@ -17,9 +21,9 @@
     }
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions Ignored because everything is in the test environment -->
-<div      on:keypress={onKeyPress}
-          on:keydown={onKeyDown}
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions Ignored because everything is in the test environment -->
+<div      onkeypress={onKeyPress}
+          onkeydown={onKeyDown}
 id="mock-environment" role="group">
     <MockSurroundingComponent>
         <OptionalComponent box={box} editor={editor}/>

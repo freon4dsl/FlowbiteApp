@@ -2,8 +2,12 @@
     import LabelComponent from "../../lib/components/LabelComponent.svelte";
     import { LabelBox } from "@freon4dsl/core";
     // Parameters
-    export let box1: LabelBox;
-    export let box2: LabelBox;
+    interface Props {
+        box1: LabelBox;
+        box2: LabelBox;
+    }
+
+    let { box1, box2 }: Props = $props();
 
 </script>
 
