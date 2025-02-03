@@ -45,31 +45,26 @@
     "!dist/**/*.spec.*"
   ],
   "devDependencies": {
-    "mobx": "^6.12.3",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/svelte": "^5.1.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
     "jest-transform-stub": "^2.0.0",
     "tslib": "^2.6.3",
-    "@sveltejs/adapter-auto": "^3.2.1",
-    "@sveltejs/kit": "^2.5.27",
-    "@sveltejs/package": "^2.3.7",
-    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/kit": "^2.17.0",
+    "@sveltejs/package": "^2.3.10",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "jsdom": "^24.1.0",
     "publint": "^0.2.8",
-    "svelte-check": "^4.0.0",
-    "typescript": "^5.5.0",
-    "vite": "^5.4.4",
-    "vitest": "^2.1.0"
+    "svelte-check": "^4.1.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vitest": "^3.0.4"
   },
   "dependencies": {
-    "@material/web": "^1.5.1",
-    "@material/slider": "^14.0.0",
-    "@material/switch": "^14.0.0",
-    "@smui/ripple": "^7.0.0",
-    "svelte": "^5.0.0",
-    "@freon4dsl/core": "^1.0.0-beta3",
-    "mobx": "^6.12.3"
+    "svelte": "^5.19.6",
+    "@freon4dsl/core": "^1.0.0",
+    "mobx": "^6.13.6"
   }
 }
