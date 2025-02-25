@@ -9,4 +9,6 @@ export function configureLoggers() {
     // FreLogger.unmute("FreLionwebSerializer")
     // // Do not show log messages containing any of these strings
     // FreLogger.setFilter(["beforeUpdate", "setFocus", "afterUpdate", "onMount", "REFRESH", "refresh"])
+	// FreLogger.unmuteAllLogs();
+	// FreLogger.unmute("FreonComponent")
 }

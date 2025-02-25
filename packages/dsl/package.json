@@ -20,9 +20,6 @@
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
     "generate": "freon all -d src/defs -o src/freon",
-    "prepare-app": "npm run styles-light && npm run styles-dark",
-    "styles-light": "smui-theme compile public/site.css -i style",
-    "styles-dark": "smui-theme compile public/site-dark.css -i style/dark",
     "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js"
   },
   "devDependencies": {
@@ -30,7 +27,6 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@smui-extra/accordion": "^7.0.0",
     "@tsconfig/svelte": "^5.0.4",
     "cross-env": "^7.0.3",
     "rollup": "^4.22.4",
@@ -48,7 +44,6 @@
     "@freon4dsl/core-svelte": "1.0.0-beta3",
     "@freon4dsl/meta": "1.0.0-beta3",
     "@freon4dsl/server": "1.0.0-beta3",
-    "@freon4dsl/webapp-lib": "1.0.0-beta3",
     "@types/node": "^20.14.1",
     "kotlin": "^1.5.21",
     "lodash": "^4.17.21",
