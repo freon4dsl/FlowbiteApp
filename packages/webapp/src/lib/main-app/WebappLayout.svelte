@@ -55,9 +55,11 @@
       marking down below does not function. -->
 </div>
 
+
 <div
 	 class="h-full flex items-center justify-center bg-primary-50 dark:bg-gray-700 dark:text-white pb-16 sm:mb-12 sm:mt-12 md:mb-20 md:mt-20 lg:mb-20 lg:mt-20 xl:mb-20 xl:mt-20"
 >
+
 	<div class='bg-white m-4 dark:bg-gray-700 dark:text-white'>
 		{#if (noUnitAvailable.value)}
 			<div class="message">

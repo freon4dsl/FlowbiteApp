@@ -4,121 +4,121 @@
  * 
  *********************************************/
 
-.freon-component {
+.dark .freon-component {
     color: whitesmoke;
     background-color: darkslategray;
     --md-sys-color-primary: whitesmoke;
     --md-sys-color-on-surface-variant: whitesmoke; /* color for the one that is not checked */
 }
 
-.label-component:empty:before {
+.dark .label-component:empty:before {
 }
 
-.label-component {
+.dark .label-component {
 }
 
-.list-component-horizontal {
+.dark .list-component-horizontal {
     border-color: lightgreen;
 }
 
-.list-component-vertical {
+.dark .list-component-vertical {
     border-color: red;
 }
 
-.layout-component {
+.dark .layout-component {
 }
 
-.layout-component-horizontal {
+.dark .layout-component-horizontal {
 }
 
-.layout-component-horizontal-error {
+.dark .layout-component-horizontal-error {
     border-bottom: double thin red;
     padding-bottom: 1px;
 }
 
-.layout-component-vertical {
+.dark .layout-component-vertical {
 }
 
-.layout-component-vertical-error {
+.dark .layout-component-vertical-error {
     border-left: 2px solid red;
     height: 100%;
 }
 
-.limited-checkbox-component-group {
+.dark .limited-checkbox-component-group {
     --md-sys-color-primary: transparent;
     --md-sys-color-on-surface-variant: whitesmoke;
     --md-sys-color-on-surface: whitesmoke; /* box color for the one that is not checked */
 }
-.limited-checkbox-component-group:hover,
-.limited-checkbox-component-group:focus-within {
+.dark .limited-checkbox-component-group:hover,
+.dark .limited-checkbox-component-group:focus-within {
     outline: rgba(211, 227, 253, 255) solid 1px;
     box-shadow: 0 0 10px rgba(211, 227, 253, 255);
 }
-.limited-checkbox-component-label {
+.dark .limited-checkbox-component-label {
 }
-.limited-checkbox-component-single {
+.dark .limited-checkbox-component-single {
 }
 
-.limited-radio-component-group {
+.dark .limited-radio-component-group {
 }
-.limited-radio-component-group:focus,
-.limited-radio-component-group:hover,
-.limited-radio-component-group:focus-within {
+.dark .limited-radio-component-group:focus,
+.dark .limited-radio-component-group:hover,
+.dark .limited-radio-component-group:focus-within {
     outline: whitesmoke solid 1px;
     box-shadow: 0 0 10px whitesmoke;
 }
-.limited-radio-component-single {
+.dark .limited-radio-component-single {
 }
-.limited-radio-component-vertical {
+.dark .limited-radio-component-vertical {
 }
-.limited-radio-component-label {
+.dark .limited-radio-component-label {
 }
 
-.contextmenu {
+.dark .contextmenu {
     border-color: #c5c5c5;
     background: #e5e5e5;
     box-shadow: 1.5px 1.5px 5px grey;
 }
-.contextmenu-button {
+.dark .contextmenu-button {
     background: none;
     border: none;
 }
 
-.contextmenu-button:hover {
+.dark .contextmenu-button:hover {
     background: #f4f4f4;
 }
 
-.contextmenu-shortcut {
+.dark .contextmenu-shortcut {
     color: #666;
 }
 
-.contextmenu-hr {
+.dark .contextmenu-hr {
     border-top: solid 1px #c5c5c5;
 }
 
-.error-tooltip {
+.dark .error-tooltip {
     border: 1px solid #ddd;
     box-shadow: 1px 1px 1px #ddd;
     background: darkgrey;
 }
-.error-marker {
+.dark .error-marker {
     background-color: #FF4C4C;
 }
 
-.button-component-ripple {
+.dark .button-component-ripple {
 }
-.button-component-ripple:hover {
+.dark .button-component-ripple:hover {
     background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) no-repeat center/15000%;
     background-color: antiquewhite;
 }
-.button-component-ripple:active {
+.dark .button-component-ripple:active {
     background-color: green;
 }
-.button-component-empty {
+.dark .button-component-empty {
 }
 
 /* Button style */
-.button-component {
+.dark .button-component {
     box-shadow: 2px 2px 4px antiquewhite;
     background-color: whitesmoke;
     color: darkblue;
@@ -127,62 +127,62 @@
 boolean-checkbox-component {
     --md-sys-color-primary: rgba(211, 227, 253, 255);
 }
-.boolean-checkbox-component:hover,
-.boolean-checkbox-component:focus-within {
+.dark .boolean-checkbox-component:hover,
+.dark .boolean-checkbox-component:focus-within {
     outline: rgba(211, 227, 253, 255) solid 1px;
     box-shadow: 0px 0px 10px rgba(211, 227, 253, 255);
 }
 
-.boolean-radio-component-group {
+.dark .boolean-radio-component-group {
     color: whitesmoke;
     /*--md-sys-color-primary: var(--freon-boolean-color, var(--mdc-theme-primary));*/
     /*--md-sys-color-on-surface-variant: red; color for the one that is not checked */
 }
-.boolean-radio-component-group:hover,
-.boolean-radio-component-group:focus-within {
+.dark .boolean-radio-component-group:hover,
+.dark .boolean-radio-component-group:focus-within {
     outline: rgba(211, 227, 253, 255) solid 1px;
     box-shadow: 0 0 10px rgba(211, 227, 253, 255);
 }
-.boolean-radio-component-single {
+.dark .boolean-radio-component-single {
 }
-.boolean-radio-component-vertical {
+.dark .boolean-radio-component-vertical {
 }
-.boolean-radio-component-label {
-}
-
-.text-component-width {
+.dark .boolean-radio-component-label {
 }
 
-.text-component-input {
+.dark .text-component-width {
+}
+
+.dark .text-component-input {
     color: yellow;
     background: darkslategray;
 }
 
-.text-component-text {
+.dark .text-component-text {
     color: yellow;
     /*background: var(--freon-text-component-background-color, inherit);*/
 }
 
-.text-component-placeholder {
+.dark .text-component-placeholder {
     color: yellow;
     /*background: var(--freon-text-component-background-color, inherit);*/
 }
-.text-component-action-placeholder {
+.dark .text-component-action-placeholder {
     color: lightyellow;
     /*background: var(--freon-text-component-background-color, inherit);*/
 }
 
-.multiline-text-component {
+.dark .multiline-text-component {
     color: yellow;
     /*background: var(--freon-text-component-background-color, inherit);*/
 }
 
-.numeric-slider-component {
+.dark .numeric-slider-component {
     --md-slider-inactive-track-color: gray;
 }
 
-.numeric-slider-component:hover,
-.numeric-slider-component:focus-within {
+.dark .numeric-slider-component:hover,
+.dark .numeric-slider-component:focus-within {
     outline: rgba(211, 227, 253, 255) solid 1px;
     box-shadow: 0 0 8px gray;
     border-radius: 0.1em;
@@ -194,23 +194,23 @@ dropdown-component {
     background: #e5e5e5;
 }
 
-.dropdown-component-item {
+.dark .dropdown-component-item {
     color: darkblue;
     /*background-color: var(--freon-dropdownitem-component-background-color, inherit);*/
     background: none;
 }
 
-.dropdown-component-error {
+.dark .dropdown-component-error {
     color: red;
     /*background-color: var(--freon-dropdownitem-component-error-bg-color, red);*/
 }
 
-.dropdown-component-item:hover {
+.dark .dropdown-component-item:hover {
     color: darkblue;
     background-color: #f4f4f4;
 }
 
-.dropdown-component-selected {
+.dark .dropdown-component-selected {
     color: darkblue;
     background-color: lightblue;
 }
@@ -218,122 +218,122 @@ dropdown-component {
 /******************************************************************
  *
  ******************************************************************/
-.inner-switch-component button {
+.dark .inner-switch-component button {
     color: white;
 }
 
-.inner-switch-component button[role="switch"][aria-checked="false"] {
+.dark .inner-switch-component button[role="switch"][aria-checked="false"] {
     color: whitesmoke;
     background-color: gray;
 }
-.inner-switch-component button[role="switch"][aria-checked="true"] {
+.dark .inner-switch-component button[role="switch"][aria-checked="true"] {
     color: darkblue;
     background-color: lightgray;
 }
 
-.inner-switch-component button span {
+.dark .inner-switch-component button span {
 }
 
-.inner-switch-component button:hover,
-.inner-switch-component button:focus {
+.dark .inner-switch-component button:hover,
+.dark .inner-switch-component button:focus {
     outline: white solid 1px;
     box-shadow: 0 0 8px white;
 }
 
-.optional-component-new:empty:before {
+.dark .optional-component-new:empty:before {
     background-color: lightpink;
 }
 
-.optional-component-show {
+.dark .optional-component-show {
 }
-.optional-component-hide {
+.dark .optional-component-hide {
     color: lightgrey;
 }
 
-.render-component {
+.dark .render-component {
 }
-.render-component-unknown-box {
+.dark .render-component-unknown-box {
     color: red;
 }
-.render-component-error {
+.dark .render-component-error {
     text-decoration-line: underline;
     text-decoration-style: wavy;
     text-decoration-color: red;
 }
-.render-component-unselected {
+.dark .render-component-unselected {
     /*background-color: transparent;*/
 }
-.render-component-selected {
+.dark .render-component-selected {
     outline-color: whitesmoke;
 }
 
-.switch-component {
+.dark .switch-component {
 }
-.switch-component button {
+.dark .switch-component button {
     background: darkslategray;
 }
 
-.switch-component button::before {
+.dark .switch-component button::before {
     /* defines the knob */
     background-color: whitesmoke;
 }
 
-.switch-component button[aria-checked="true"] {
+.dark .switch-component button[aria-checked="true"] {
     background-color: lightgray;
 }
-.switch-component button[aria-checked="false"] {
+.dark .switch-component button[aria-checked="false"] {
     background-color: dimgray;
 }
 
-.switch-component button[aria-checked="true"]::before {
+.dark .switch-component button[aria-checked="true"]::before {
 }
 
-.switch-component button:hover,
-.switch-component button:focus {
+.dark .switch-component button:hover,
+.dark .switch-component button:focus {
     box-shadow: 0 0px 8px rgba(211, 227, 253, 255);
 }
 
-.switch-component button {
+.dark .switch-component button {
 }
 
-.switch-component button::before {
+.dark .switch-component button::before {
 }
 
-.table-component {
+.dark .table-component {
     border-color: lightgreen;
 }
 
-.table-cell-component {
+.dark .table-cell-component {
     background-color: transparent;
 }
 
-.table-cell-component-unselected {
+.dark .table-cell-component-unselected {
     background: transparent;
 }
-.table-cell-component-selected {
+.dark .table-cell-component-selected {
     outline-color: whitesmoke;
 }
 
-.grid-component {
+.dark .grid-component {
     border-color: lightgreen;
 }
 
-.grid-cell-component {
+.dark .grid-cell-component {
     color: inherit;
 }
 
-.reference-button {
+.dark .reference-button {
     background-color: transparent;
 }
 
-.text-dropdown-component .text-component-text {
+.dark .text-dropdown-component .dark .text-component-text {
     color: lightgreen;
 }
 
-.brackets {
+.dark .brackets {
     color: gray;
 }
 
-.drag-handle-icon {
+.dark .drag-handle-icon {
     fill: floralwhite;
 }
