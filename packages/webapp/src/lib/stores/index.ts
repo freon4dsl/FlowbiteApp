@@ -1,2 +1,1 @@
-export * from "./LanguageInfo.svelte";
-export * from "./Projections.svelte";
+export * from "./WebappStores.svelte";

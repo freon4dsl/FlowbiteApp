@@ -1,1 +1,0 @@
-export * from "./WebappConfigurator.js";

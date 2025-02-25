@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FreonLayout from '$lib/main-app/FreonLayout.svelte';
+	import WebappLayout from '$lib/main-app/WebappLayout.svelte';
 </script>
 
-<FreonLayout />
+<WebappLayout />
