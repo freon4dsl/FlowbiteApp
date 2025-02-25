@@ -10,11 +10,11 @@
 		Tooltip
 	} from 'flowbite-svelte';
 	import { AnnotationSolid, ChevronRightOutline } from 'flowbite-svelte-icons';
-	import { drawerHidden } from '$lib/stores/DrawerStore';
-	import GitHub from '$lib/GitHub.svelte';
-	import FileMenu from '$lib/FileMenu.svelte';
-	import EditMenu from '$lib/EditMenu.svelte';
-	import ViewMenu from '$lib/ViewMenu.svelte';
+	import { drawerHidden, langInfo } from '$lib/stores/LanguageInfo.svelte';
+	import GitHub from '$lib/main-app/GitHub.svelte';
+	import FileMenu from '$lib/main-app/FileMenu.svelte';
+	import EditMenu from '$lib/main-app/EditMenu.svelte';
+	import ViewMenu from '$lib/main-app/ViewMenu.svelte';
 	let hidden = false;
 </script>
 
@@ -22,7 +22,7 @@
 	<Navbar class="fixed start-0 top-0 z-20 w-full flex-nowrap border-b px-2 py-2.5 sm:px-4">
 		<NavBrand href="/">
 			<img src="./freonlogo.svg" class="me-3 h-6 sm:h-9" alt="Freon Logo" />
-			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon</span>
+			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon for {langInfo.name}</span>
 		</NavBrand>
 
 		<NavUl {hidden}>
@@ -48,7 +48,7 @@
 					<AnnotationSolid class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Go to Documentation</Tooltip>
-				<Button on:click={() => ($drawerHidden = false)}>
+				<Button on:click={() => (drawerHidden.value = false)}>
 					<ChevronRightOutline class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Show Model Info</Tooltip>

@@ -1,6 +1,6 @@
-/* This file contains the Rules-as-tables editor definition. */
+/* This file contains the rules-as-tables editor definition. */
 
-editor Rules_as_table
+editor rules_as_table
 
 FlowRule {[
     -------------------------------------
