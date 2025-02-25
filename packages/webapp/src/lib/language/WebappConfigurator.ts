@@ -1,15 +1,17 @@
 import {
+  BoxFactory,
   type FreEnvironment,
-  FreLanguage,
-  FreLogger,
+  FreLanguage, FreLogger, type FreModelUnit,
   FreProjectionHandler,
   FreUndoManager,
   InMemoryModel,
-  type IServerCommunication
+  type IServerCommunication, isNullOrUndefined
 } from '@freon4dsl/core';
 import { replaceProjectionsShown } from "$lib/stores/Projections.svelte.js";
 import { langInfo } from "$lib/stores/LanguageInfo.svelte.js";
-import { runInAction } from "mobx";
+import { autorun, runInAction } from "mobx";
+import { editorInfo, modelInfo, noUnitAvailable, progressIndicatorShown } from '$lib/stores/ModelInfo.svelte';
+
 
 const LOGGER: FreLogger = new FreLogger('Webapp');
 
@@ -32,6 +34,7 @@ export class WebappConfigurator {
   serverCommunication: IServerCommunication | undefined;
   editorEnvironment: FreEnvironment | undefined;
   private modelStore: InMemoryModel | undefined;
+  currentUnit: FreModelUnit | undefined;
 
   /**
    * Sets the object that will perform the communication with the server, and
@@ -105,5 +108,108 @@ export class WebappConfigurator {
 
         // start the undo manager
         FreUndoManager.getInstance();
+    }
+
+    /**
+     * Reads the model with name 'modelName' from the server and makes this the current model.
+     * The first unit in the model is shown, if present.
+     * @param modelName
+     */
+    async openModel(modelName: string) {
+        if (!!this.modelStore) {
+            // progressIndicatorShown.value = true;
+            // this.resetGlobalVariables();
+            // save the old current unit, if there is one
+            // await this.saveCurrentUnit();
+            // create new model instance in memory and set its name
+            await this.modelStore.openModel(modelName);
+            const unitIdentifiers = this.modelStore.getUnitIdentifiers();
+            LOGGER.log('unit identifiers: ' + JSON.stringify(unitIdentifiers));
+            if (!!unitIdentifiers && unitIdentifiers.length > 0) {
+                // load the first unit and show it
+                let first: boolean = true;
+                for (const unitIdentifier of unitIdentifiers) {
+                    if (first) {
+                        const unit = this.modelStore.getUnitByName(unitIdentifier.name);
+                        LOGGER.log("UnitId " + unitIdentifier.name + " unit is " + unit?.name);
+                        this.currentUnit = unit;
+                        BoxFactory.clearCaches()
+                        this.editorEnvironment?.projectionHandler.clear()
+                        this.showUnit(this.currentUnit);
+                        first = false;
+                    }
+                }
+            } else {
+                // progressIndicatorShown.value = false;
+            }
+            this.updateUnitList()
+        }
+    }
+
+    async getAllModelNames(): Promise<string[]> {
+        if (!!this.serverCommunication) {
+            return this.serverCommunication?.loadModelList();
+        } else {
+            return [];
+        }
+    }
+
+    updateUnitListRunning: boolean = false;
+
+    updateUnitList(): void {
+        // Ensure this is done only once
+        if (!this.updateUnitListRunning) {
+            this.updateUnitListRunning = true
+            autorun(() => {
+                if (this.modelStore) {
+                    modelInfo.units = this.modelStore.getUnits();
+                }
+            });
+        }
+    }
+
+    /**
+     * This function takes care of actually showing the new unit in the editor
+     * and getting the validation errors, if any, and show them in the error list.
+     * @param newUnit
+     * @private
+     */
+    private showUnit(newUnit: FreModelUnit) {
+        LOGGER.log("showUnit called, unitName: " + newUnit?.name);
+        if (!!newUnit) {
+            runInAction(() => {
+                if (!!this.editorEnvironment) {
+                    console.log("setting rootElement to " + newUnit.name)
+                    this.editorEnvironment.editor.rootElement = newUnit;
+                    this.currentUnit = newUnit;
+                    editorInfo.currentUnit = newUnit;
+                }
+            });
+            if (!isNullOrUndefined(this.currentUnit)) {
+              noUnitAvailable.value = false;
+            }
+        }
+        progressIndicatorShown.value = false;
+    }
+
+    /**
+     * Creates a new model
+     * @param modelName
+     */
+    async newModel(modelName: string) {
+        LOGGER.log("new model called: " + modelName);
+        progressIndicatorShown.value = true;
+        // save the old current unit, if there is one
+        // await this.saveCurrentUnit();
+        // reset all visible information on the model and unit
+        // this.resetGlobalVariables();
+        // create a new model
+        if (!!this.modelStore) {
+            await this.modelStore.createModel(modelName);
+            await this.modelStore.createUnit("myUnit", langInfo.unitTypes[0]);
+            this.showUnit(this.modelStore.getUnitByName("myUnit"))
+            // this.updateUnitList();
+            progressIndicatorShown.value = false;
+        }
     }
 }

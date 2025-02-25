@@ -10,12 +10,11 @@
 		Tooltip
 	} from 'flowbite-svelte';
 	import { AnnotationSolid, ChevronRightOutline } from 'flowbite-svelte-icons';
-	import { drawerHidden } from '$lib/stores/WebappStores.svelte';
+	import { drawerHidden, langInfo } from '$lib/stores/LanguageInfo.svelte';
 	import GitHub from '$lib/main-app/GitHub.svelte';
 	import FileMenu from '$lib/main-app/FileMenu.svelte';
 	import EditMenu from '$lib/main-app/EditMenu.svelte';
 	import ViewMenu from '$lib/main-app/ViewMenu.svelte';
-	import {langInfo} from "$lib/stores/LanguageInfo.svelte";
 	let hidden = false;
 </script>
 
@@ -49,7 +48,7 @@
 					<AnnotationSolid class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Go to Documentation</Tooltip>
-				<Button onclick={() => (drawerHidden.value = false)}>
+				<Button on:click={() => (drawerHidden.value = false)}>
 					<ChevronRightOutline class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Show Model Info</Tooltip>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Checkbox, Dropdown, DropdownDivider, DropdownItem, NavLi } from 'flowbite-svelte';
 	import { ChevronDownOutline } from 'flowbite-svelte-icons';
-	import { projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte';
-	import { langInfo } from '$lib/stores/LanguageInfo.svelte';
+	import { projectionsShown, replaceProjectionsShown } from '$lib/stores/Projections.svelte.js';
+	import { langInfo } from '$lib/stores/LanguageInfo.svelte.js';
 
 	let allProjections = $derived(
 		langInfo.projectionNames.map(view => {
@@ -41,10 +41,10 @@
 	{#each allProjections as option}
 		{#if option !== null && option !== undefined}
 		<li>
-			<Checkbox onchange={() => !!option ? option.selected = !option.selected: null} checked={option.selected}>{option ? option.name : "unknown view"}</Checkbox>
+			<Checkbox on:change={() => !!option ? option.selected = !option.selected: null} checked={option.selected}>{option ? option.name : "unknown view"}</Checkbox>
 		</li>
 			{/if}
 	{/each}
 	<DropdownDivider />
-	<DropdownItem onclick={() => applyChanges()}>Apply changes</DropdownItem>
+	<DropdownItem on:click={() => applyChanges()}>Apply changes</DropdownItem>
 </Dropdown>
