@@ -41,10 +41,10 @@
 	{#each allProjections as option}
 		{#if option !== null && option !== undefined}
 		<li>
-			<Checkbox on:change={() => !!option ? option.selected = !option.selected: null} checked={option.selected}>{option ? option.name : "unknown view"}</Checkbox>
+			<Checkbox onchange={() => !!option ? option.selected = !option.selected: null} checked={option.selected}>{option ? option.name : "unknown view"}</Checkbox>
 		</li>
 			{/if}
 	{/each}
 	<DropdownDivider />
-	<DropdownItem on:click={() => applyChanges()}>Apply changes</DropdownItem>
+	<DropdownItem onclick={() => applyChanges()}>Apply changes</DropdownItem>
 </Dropdown>

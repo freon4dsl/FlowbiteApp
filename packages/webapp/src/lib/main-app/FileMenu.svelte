@@ -80,7 +80,7 @@
 >
 <Dropdown class="z-20 w-44">
 	{#each menuItems as item, index}
-		<DropdownItem on:click={() => item.action(index)}>
+		<DropdownItem onclick={() => item.action(index)}>
 			{item.title}
 		</DropdownItem>
 		{#if item.id === 2}
