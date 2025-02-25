@@ -86,7 +86,7 @@
 <Modal bind:open={dialogs.openModelDialogVisible} size="xs" autoclose={false} class="w-full" >
 
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<div class="flex flex-col space-y-6" on:keydown={handleEnterKey} role="dialog">
+	<div class="flex flex-col space-y-6" onkeydown={handleEnterKey} role="dialog">
 
 		<h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Open Model</h3>
 		<Label class="space-y-2">
@@ -103,15 +103,15 @@
 		</Label>
 		<div class="grid grid-cols-4">
 			{#each serverInfo.allModelNames as model}
-				<Radio class="p-2" name="models" on:change={() => {internalSelected = model}} >{model}</Radio>
+				<Radio class="p-2" name="models" onchange={() => {internalSelected = model}} >{model}</Radio>
 			{/each}
 		</div>
 
 	</div>
 
 	<svelte:fragment slot="footer">
-		<Button on:click={handleSubmit}>Open</Button>
-		<Button color="alternative" on:click={handleCancel}>Cancel</Button>
+		<Button onclick={handleSubmit}>Open</Button>
+		<Button color="alternative" onclick={handleCancel}>Cancel</Button>
 	</svelte:fragment>
 
 </Modal>

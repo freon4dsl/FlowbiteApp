@@ -48,7 +48,7 @@
 					<AnnotationSolid class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Go to Documentation</Tooltip>
-				<Button on:click={() => (drawerHidden.value = false)}>
+				<Button onclick={() => (drawerHidden.value = false)}>
 					<ChevronRightOutline class="ms-0 inline h-6 w-6 dark:text-white" />
 				</Button>
 				<Tooltip placement="bottom">Show Model Info</Tooltip>

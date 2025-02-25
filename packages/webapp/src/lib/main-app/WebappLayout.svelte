@@ -107,7 +107,7 @@
 		>
 			Model Info
 		</h5>
-		<CloseButton on:click={() => (drawerHidden.value = true)} class="mb-4 dark:text-white" />
+		<CloseButton onclick={() => (drawerHidden.value = true)} class="mb-4 dark:text-white" />
 	</div>
 	<ModelInfo />
 </Drawer>
