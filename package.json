@@ -5,5 +5,8 @@
     "packages/dsl",
     "packages/webapp"
   ],
+  "scripts": {
+    "clean": "rm -f package-lock.json && rm -rf node_modules/ && npm run clean --workspaces --if-present"
+  },
   "version": "1.0.0"
 }

@@ -1,1 +1,1 @@
-export * from "./WebappConfigurator.js"
+export * from "./WebappConfigurator.js";
