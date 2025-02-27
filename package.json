@@ -5,5 +5,8 @@
     "packages/dsl",
     "packages/webapp"
   ],
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "install-local": "npm install --registry http://localhost:4873"
+  }
 }

@@ -10,7 +10,7 @@
 		Tooltip
 	} from 'flowbite-svelte';
 	import { AnnotationSolid, ChevronRightOutline } from 'flowbite-svelte-icons';
-	import { drawerHidden } from '$lib/stores/WebappStores.svelte';
+	import { drawerHidden, langInfo } from '$lib/stores/LanguageInfo.svelte';
 	import GitHub from '$lib/main-app/GitHub.svelte';
 	import FileMenu from '$lib/main-app/FileMenu.svelte';
 	import EditMenu from '$lib/main-app/EditMenu.svelte';
@@ -22,7 +22,7 @@
 	<Navbar class="fixed start-0 top-0 z-20 w-full flex-nowrap border-b px-2 py-2.5 sm:px-4">
 		<NavBrand href="/">
 			<img src="./freonlogo.svg" class="me-3 h-6 sm:h-9" alt="Freon Logo" />
-			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon</span>
+			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Freon for {langInfo.name}</span>
 		</NavBrand>
 
 		<NavUl {hidden}>
